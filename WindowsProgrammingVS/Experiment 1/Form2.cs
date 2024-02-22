@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WinFormsApppracticalexp1
+namespace Programming_in_Windows_Practical_1
 {
     public partial class Form2 : Form
     {
@@ -19,17 +19,15 @@ namespace WinFormsApppracticalexp1
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            string user_id = textbox_userid.Text;
-            string password = textbox_password.Text;
-            if(user_id=="Chandni" && password=="123456")
+            if (textbox_userid.Text == "Pranav" && textbox_password.Text == "3486")
             {
-                this.Hide(); //for hiding the previous instance of form used for login
-                MyWinApp f = new MyWinApp();
+                this.Hide();
+                Form1 f = new Form1();
                 f.Show();
             }
             else
             {
-                MessageBox.Show("Password or User ID is incorrect");
+                MessageBox.Show("User ID or Password is incorrect", "Error");
             }
         }
 
