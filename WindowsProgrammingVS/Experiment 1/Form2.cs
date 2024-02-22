@@ -23,6 +23,7 @@ namespace WinFormsApppracticalexp1
             string password = textbox_password.Text;
             if(user_id=="Chandni" && password=="123456")
             {
+                this.Hide(); //for hiding the previous instance of form used for login
                 MyWinApp f = new MyWinApp();
                 f.Show();
             }
