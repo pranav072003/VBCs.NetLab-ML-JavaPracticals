@@ -37,6 +37,8 @@
             button_divide = new Button();
             button_sqrt = new Button();
             button_back = new Button();
+            button_multiply = new Button();
+            button_square = new Button();
             SuspendLayout();
             // 
             // label1
@@ -115,7 +117,7 @@
             // 
             // button_back
             // 
-            button_back.Location = new Point(470, 284);
+            button_back.Location = new Point(432, 337);
             button_back.Name = "button_back";
             button_back.Size = new Size(94, 29);
             button_back.TabIndex = 8;
@@ -123,11 +125,33 @@
             button_back.UseVisualStyleBackColor = true;
             button_back.Click += button_back_Click;
             // 
+            // button_multiply
+            // 
+            button_multiply.Location = new Point(469, 284);
+            button_multiply.Name = "button_multiply";
+            button_multiply.Size = new Size(94, 29);
+            button_multiply.TabIndex = 9;
+            button_multiply.Text = "Multiply";
+            button_multiply.UseVisualStyleBackColor = true;
+            button_multiply.Click += button_multiply_Click;
+            // 
+            // button_square
+            // 
+            button_square.Location = new Point(303, 337);
+            button_square.Name = "button_square";
+            button_square.Size = new Size(94, 29);
+            button_square.TabIndex = 10;
+            button_square.Text = "Square";
+            button_square.UseVisualStyleBackColor = true;
+            button_square.Click += button_square_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_square);
+            Controls.Add(button_multiply);
             Controls.Add(button_back);
             Controls.Add(button_sqrt);
             Controls.Add(button_divide);
@@ -154,5 +178,7 @@
         private Button button_divide;
         private Button button_sqrt;
         private Button button_back;
+        private Button button_multiply;
+        private Button button_square;
     }
 }

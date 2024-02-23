@@ -45,8 +45,10 @@ namespace Programming_in_Windows_Practical_1
         {
             int a = Int32.Parse(textbox_num1.Text);
             int b = Int32.Parse(textbox_num2.Text);
-            double result = Math.Sqrt((double) a);
-            MessageBox.Show(result.ToString(), "Square Root Result");
+            double result1 = Math.Sqrt((double)a);
+            double result2 = Math.Sqrt((double)b);
+            MessageBox.Show(result1.ToString(), "Square Root Result of 1st Number");
+            MessageBox.Show(result2.ToString(), "Square Root Result of 2nd Number");
         }
 
         private void button_back_Click(object sender, EventArgs e)
@@ -54,6 +56,24 @@ namespace Programming_in_Windows_Practical_1
             this.Hide();
             Form1 f = new Form1();
             f.Show();
+        }
+
+        private void button_multiply_Click(object sender, EventArgs e)
+        {
+            int a = Int32.Parse(textbox_num1.Text);
+            int b = Int32.Parse(textbox_num2.Text);
+            int result = a * b;
+            MessageBox.Show(result.ToString(), "Multiplication Result");
+        }
+
+        private void button_square_Click(object sender, EventArgs e)
+        {
+            int a = Int32.Parse(textbox_num1.Text);
+            int b = Int32.Parse(textbox_num2.Text);
+            int result1 = a * a;
+            int result2 = b * b;
+            MessageBox.Show(result1.ToString(), "Square of First Number");
+            MessageBox.Show(result2.ToString(), "Square of Second Number");
         }
     }
 }
