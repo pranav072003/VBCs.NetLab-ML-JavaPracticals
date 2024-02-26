@@ -29,7 +29,7 @@ namespace Assignment_3_Windows_Programming_theory
             string DOB = date_birth.Text;
             string DOJ = dateTimePicker1.Text;
             string result = "Your Date of birth is " + DOB + " and your date of joining is " + DOJ;
-            MessageBox.Show(result, "Status");
+            MessageBox.Show(result, "Status",MessageBoxButtons.OK,MessageBoxIcon.Information);
             this.Hide();
             Form3 f = new Form3();
             f.Show();

@@ -29,10 +29,17 @@ namespace Assignment_3_Windows_Programming_theory
 
         private void button_submit_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form1 f = new Form1();
-            f.Show();
-            MessageBox.Show("Your information has been recorded successfully. Thanks for registering!");
+            if((textbox_address.Text.Length >0) && (textbox_emailid.Text.Length>0) && (textbox_number.Text.Length>0))
+            {
+                this.Hide();
+                Form1 f = new Form1();
+                f.Show();
+                MessageBox.Show("Your information has been recorded successfully. Thanks for registering!");
+            }
+            else
+            {
+                MessageBox.Show("Input entries cannot be blank!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void button_back_Click(object sender, EventArgs e)
@@ -44,6 +51,8 @@ namespace Assignment_3_Windows_Programming_theory
 
         private void button_reset_Click(object sender, EventArgs e)
         {
+            combobox_gender.DisplayMember = "male";
+            // panel_dept.Enabled = false;
             textbox_address.Text = "";
             textbox_emailid.Text = "";
             textbox_number.Text = "";
