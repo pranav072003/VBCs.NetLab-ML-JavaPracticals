@@ -36,12 +36,13 @@
             label_confirmid = new Label();
             label_emailid = new Label();
             groupbox_services = new GroupBox();
-            label_sms = new Label();
-            label_reports = new Label();
-            label_transactions = new Label();
-            label_smsenable = new Label();
-            label_reportenable = new Label();
             label_transactionenable = new Label();
+            label_reportenable = new Label();
+            label_smsenable = new Label();
+            label_transactions = new Label();
+            label_reports = new Label();
+            label_sms = new Label();
+            button_exit = new Button();
             groupbox_services.SuspendLayout();
             SuspendLayout();
             // 
@@ -124,32 +125,39 @@
             groupbox_services.Controls.Add(label_reports);
             groupbox_services.Controls.Add(label_sms);
             groupbox_services.Font = new Font("Arial Narrow", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupbox_services.Location = new Point(191, 314);
+            groupbox_services.Location = new Point(177, 305);
             groupbox_services.Name = "groupbox_services";
             groupbox_services.Size = new Size(410, 175);
             groupbox_services.TabIndex = 8;
             groupbox_services.TabStop = false;
             groupbox_services.Text = "Services you chose:-";
             // 
-            // label_sms
+            // label_transactionenable
             // 
-            label_sms.AutoSize = true;
-            label_sms.Font = new Font("Arial Narrow", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_sms.Location = new Point(72, 57);
-            label_sms.Name = "label_sms";
-            label_sms.Size = new Size(190, 33);
-            label_sms.TabIndex = 3;
-            label_sms.Text = "SMS Notifications";
+            label_transactionenable.AutoSize = true;
+            label_transactionenable.Location = new Point(299, 142);
+            label_transactionenable.Name = "label_transactionenable";
+            label_transactionenable.Size = new Size(24, 33);
+            label_transactionenable.TabIndex = 8;
+            label_transactionenable.Text = "*";
             // 
-            // label_reports
+            // label_reportenable
             // 
-            label_reports.AutoSize = true;
-            label_reports.Font = new Font("Arial Narrow", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label_reports.Location = new Point(72, 102);
-            label_reports.Name = "label_reports";
-            label_reports.Size = new Size(96, 33);
-            label_reports.TabIndex = 4;
-            label_reports.Text = "Reports";
+            label_reportenable.AutoSize = true;
+            label_reportenable.Location = new Point(297, 102);
+            label_reportenable.Name = "label_reportenable";
+            label_reportenable.Size = new Size(24, 33);
+            label_reportenable.TabIndex = 7;
+            label_reportenable.Text = "*";
+            // 
+            // label_smsenable
+            // 
+            label_smsenable.AutoSize = true;
+            label_smsenable.Location = new Point(299, 57);
+            label_smsenable.Name = "label_smsenable";
+            label_smsenable.Size = new Size(24, 33);
+            label_smsenable.TabIndex = 6;
+            label_smsenable.Text = "*";
             // 
             // label_transactions
             // 
@@ -161,32 +169,35 @@
             label_transactions.TabIndex = 5;
             label_transactions.Text = "Transaction Reports";
             // 
-            // label_smsenable
+            // label_reports
             // 
-            label_smsenable.AutoSize = true;
-            label_smsenable.Location = new Point(299, 57);
-            label_smsenable.Name = "label_smsenable";
-            label_smsenable.Size = new Size(24, 33);
-            label_smsenable.TabIndex = 6;
-            label_smsenable.Text = "*";
+            label_reports.AutoSize = true;
+            label_reports.Font = new Font("Arial Narrow", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_reports.Location = new Point(72, 102);
+            label_reports.Name = "label_reports";
+            label_reports.Size = new Size(96, 33);
+            label_reports.TabIndex = 4;
+            label_reports.Text = "Reports";
             // 
-            // label_reportenable
+            // label_sms
             // 
-            label_reportenable.AutoSize = true;
-            label_reportenable.Location = new Point(297, 102);
-            label_reportenable.Name = "label_reportenable";
-            label_reportenable.Size = new Size(24, 33);
-            label_reportenable.TabIndex = 7;
-            label_reportenable.Text = "*";
+            label_sms.AutoSize = true;
+            label_sms.Font = new Font("Arial Narrow", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label_sms.Location = new Point(72, 57);
+            label_sms.Name = "label_sms";
+            label_sms.Size = new Size(190, 33);
+            label_sms.TabIndex = 3;
+            label_sms.Text = "SMS Notifications";
             // 
-            // label_transactionenable
+            // button_exit
             // 
-            label_transactionenable.AutoSize = true;
-            label_transactionenable.Location = new Point(299, 142);
-            label_transactionenable.Name = "label_transactionenable";
-            label_transactionenable.Size = new Size(24, 33);
-            label_transactionenable.TabIndex = 8;
-            label_transactionenable.Text = "*";
+            button_exit.Location = new Point(586, 496);
+            button_exit.Name = "button_exit";
+            button_exit.Size = new Size(94, 29);
+            button_exit.TabIndex = 9;
+            button_exit.Text = "Exit";
+            button_exit.UseVisualStyleBackColor = true;
+            button_exit.Click += button_exit_Click;
             // 
             // Form2
             // 
@@ -194,6 +205,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_exit);
             Controls.Add(groupbox_services);
             Controls.Add(label_confirmid);
             Controls.Add(label_emailid);
@@ -227,5 +239,6 @@
         private Label label_transactionenable;
         private Label label_reportenable;
         private Label label_smsenable;
+        private Button button_exit;
     }
 }
