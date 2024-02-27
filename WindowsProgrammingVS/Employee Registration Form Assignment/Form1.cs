@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Assignment_3_Windows_Programming_theory
 {
     public partial class Form1 : Form
     {
+        public static string Name;
+        public static string EmpID;
+
         public Form1()
         {
             InitializeComponent();
@@ -25,8 +29,10 @@ namespace Assignment_3_Windows_Programming_theory
 
         private void button_continue_Click(object sender, EventArgs e)
         {
-            if(textbox_empid.Text.All(char.IsDigit))
+            if (textbox_empid.Text.All(char.IsDigit))
             {
+                Name = textbox_name.Text;
+                EmpID = textbox_empid.Text;
                 this.Hide();
                 Form2 f = new Form2();
                 f.Show();
@@ -41,6 +47,12 @@ namespace Assignment_3_Windows_Programming_theory
         {
             textbox_name.Text = "";
             textbox_empid.Text = "";
+        }
+
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Exiting the application...", "Information", MessageBoxButtons.OK, MessageBoxIcon.None);
+            Environment.Exit(0);
         }
     }
 }

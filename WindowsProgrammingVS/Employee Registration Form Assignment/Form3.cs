@@ -51,8 +51,31 @@ namespace Assignment_3_Windows_Programming_theory
 
         private void button_reset_Click(object sender, EventArgs e)
         {
-            combobox_gender.DisplayMember = "male";
-            // panel_dept.Enabled = false;
+            combobox_gender.DisplayMember = "";
+            if(radiobutton_acc.Checked)
+            {
+                radiobutton_acc.Checked = false;
+            }
+            if(radiobutton_hrd.Checked)
+            {
+                radiobutton_hrd.Checked = false;
+            }
+            if(radiobutton_prod.Checked)
+            {
+                radiobutton_prod.Checked = false;
+            }    
+            if(radiobutton_pr.Checked)
+            {
+                radiobutton_pr.Checked = false;
+            }
+            if(radiobutton_marketing.Checked)
+            {
+                radiobutton_marketing.Checked = false;
+            }
+            if(radiobutton_it.Checked)
+            {
+                radiobutton_it.Checked = false; 
+            }
             textbox_address.Text = "";
             textbox_emailid.Text = "";
             textbox_number.Text = "";

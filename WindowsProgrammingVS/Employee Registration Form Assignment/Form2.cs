@@ -37,7 +37,7 @@ namespace Assignment_3_Windows_Programming_theory
 
         private void label1_Click(object sender, EventArgs e)
         {
-            label1.Text = "Hello! Your name and employee ID have been recorded";
+            label1.Text = "Hello! "+ Form1.Name + " with Employee ID " + Form1.EmpID;
         }
     }
 }

@@ -35,6 +35,7 @@
             button_continue = new Button();
             button_reset = new Button();
             label1 = new Label();
+            button_close = new Button();
             SuspendLayout();
             // 
             // label_name
@@ -104,11 +105,22 @@
             label1.TabIndex = 6;
             label1.Text = "Welcome to Oscorp Ltd! If you are a fresh recruit, please get yourself registered!";
             // 
+            // button_close
+            // 
+            button_close.Location = new Point(319, 295);
+            button_close.Name = "button_close";
+            button_close.Size = new Size(94, 29);
+            button_close.TabIndex = 7;
+            button_close.Text = "Close";
+            button_close.UseVisualStyleBackColor = true;
+            button_close.Click += button_close_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_close);
             Controls.Add(label1);
             Controls.Add(button_reset);
             Controls.Add(button_continue);
@@ -131,5 +143,6 @@
         private Button button_continue;
         private Button button_reset;
         private Label label1;
+        private Button button_close;
     }
 }
