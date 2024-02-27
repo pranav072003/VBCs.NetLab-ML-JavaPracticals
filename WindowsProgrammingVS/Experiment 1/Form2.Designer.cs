@@ -34,6 +34,7 @@
             label2 = new Label();
             button_login = new Button();
             button_reset = new Button();
+            button_close = new Button();
             SuspendLayout();
             // 
             // label1
@@ -91,11 +92,22 @@
             button_reset.UseVisualStyleBackColor = true;
             button_reset.Click += button_reset_Click;
             // 
+            // button_close
+            // 
+            button_close.Location = new Point(331, 320);
+            button_close.Name = "button_close";
+            button_close.Size = new Size(94, 29);
+            button_close.TabIndex = 6;
+            button_close.Text = "Close";
+            button_close.UseVisualStyleBackColor = true;
+            button_close.Click += button_close_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_close);
             Controls.Add(button_reset);
             Controls.Add(button_login);
             Controls.Add(textbox_password);
@@ -116,5 +128,6 @@
         private Label label2;
         private Button button_login;
         private Button button_reset;
+        private Button button_close;
     }
 }

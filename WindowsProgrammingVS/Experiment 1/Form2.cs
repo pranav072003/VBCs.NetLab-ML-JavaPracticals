@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace Programming_in_Windows_Practical_1
 {
@@ -35,6 +36,12 @@ namespace Programming_in_Windows_Practical_1
         {
             textbox_userid.Text = "";
             textbox_password.Text = "";
+        }
+
+        private void button_close_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Exiting the application...", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Environment.Exit(0);
         }
     }
 }
