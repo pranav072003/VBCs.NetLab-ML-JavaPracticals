@@ -1,0 +1,157 @@
+/* Styles for the entire page */
+body {
+  /* Changing text properties */
+  text-indent:0.4em;
+  text-align:left;
+}
+
+/* Class Selector used in marquee tag having class attribute = "header" */
+.header {
+    background-color: #f0ff00;
+    padding: 20px;
+}
+
+.header h3 {
+    color : #ff00f9;
+}
+
+/* ID Selector */
+#my-id {
+    text-decoration: underline;
+}
+
+/* Styles for headings */
+h1, h2, h3 {
+  /* Changing font properties of headings  */
+  font-style:oblique;
+  font-variant:small-caps;
+}
+
+/* Styles for paragraphs as specific element selector (paragraphs) */
+p {
+  /* Setting font weight of paragraphs */
+  font-weight:bold;
+}
+
+/* Descendant Selector */
+body p 
+{
+  font-style: italic;
+}
+
+/* Child Selector */
+ul > li 
+{
+  list-style-type: circle;
+  text-decoration:line-through;
+}
+
+/* Adjacent Sibling Selector */
+center + table
+{
+   margin-top: 1.95em;
+}
+
+/* Styles for links */
+a {
+  /* Experimenting with font size */
+  font-size:1.2em;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: red;
+}
+
+marquee
+{
+  letter-spacing:1em;
+  text-transform: capitalize;
+}
+
+/* Creating box model with different properties- border, margins */
+.box {
+      width: 300px;
+      height: 100px;
+      border: 15px groove maroon;  // applying different border with dimensions and styles
+      padding: 20px;
+      margin: 20px;
+    }
+
+/* apply to paragraph tag having class=box */
+p.box
+{
+   text-indent: 0.25 em;
+   color: #555;
+}
+
+/* Creating Flexbox container with specific properties set to determine arrangement of elements in a container */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+/* Creating grid arrangement */
+.container_grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr;
+  grid-template-rows: 12px 12px 12px;
+  grid-gap: 10px;
+}
+
+/* grid items */
+.item1 {
+  grid-column: 1 / 3; /* starts at column 1 and ends at column 3 */
+  grid-row: 1; /* starts and ends at row 1 */
+}
+
+.item2 {
+  grid-column: 1 / 3; /* starts at column 1 and ends at column 3 */
+  grid-row: 2; /* starts and ends at row 1 */
+}
+
+.item3 {
+  grid-column: 1 / 3; /* starts at column 1 and ends at column 3 */
+  grid-row: 3; /* starts and ends at row 1 */
+}
+
+/* CSS animation using keyframes */
+@keyframes move {
+  0% {
+    transform: translateX(-50px);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
+
+.element {
+  animation: move 2s infinite;
+}
+
+/* Media query for screens with a maximum width of 600px (mobile devices) */
+@media (max-width: 600px) {
+.container_grid {
+grid-template-columns: 1fr; /* Single column layout for mobile devices */
+}
+}
+
+/* Media query for screens with a minimum width of 601px and a maximum width of 1024px (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+.container_grid {
+grid-template-columns: repeat(2, 1fr); /* Two columns layout for tablets */
+}
+}
+
+/* Media query for screens with a minimum width of 1025px (desktop) */
+@media (min-width: 1025px) {
+.container_grid {
+grid-template-columns: repeat(3, 1fr); /* Three columns layout for desktop */
+}
+}
+
