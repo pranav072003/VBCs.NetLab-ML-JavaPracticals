@@ -341,13 +341,13 @@ namespace Assignment_4_Windows_Programming_theory
             richtextbox_calcinput.Clear();
             richtextbox_calcinput.Focus();
             richtextbox_calcinput.Text = "0";
+            num1 = "";
+            num2 = "";
         }
 
         private void button_add_Click(object sender, EventArgs e)
         {
-            if (num1.Length != 0 && (richtextbox_calcinput.Text != "+" ||
-                richtextbox_calcinput.Text != "-" || richtextbox_calcinput.Text != "*"
-                || richtextbox_calcinput.Text != "/") &&
+            if (num1.Length != 0 && op.Length != 0 &&
                 richtextbox_calcinput.Text.Length != 0)
             {
                 // both numbers have been inputted or derived
@@ -359,14 +359,13 @@ namespace Assignment_4_Windows_Programming_theory
                 richtextbox_calcinput.Clear();
                 richtextbox_calcinput.Focus();
                 richtextbox_calcinput.Text = "+";
+                op = "+";
             }
         }
 
         private void button_sub_Click(object sender, EventArgs e)
         {
-            if (num1.Length != 0 && (richtextbox_calcinput.Text != "+" ||
-                richtextbox_calcinput.Text != "-" || richtextbox_calcinput.Text != "*"
-                || richtextbox_calcinput.Text != "/") &&
+            if (num1.Length != 0 && op.Length != 0 &&
                 richtextbox_calcinput.Text.Length != 0)
             {
                 // both numbers have been inputted or derived
@@ -378,14 +377,13 @@ namespace Assignment_4_Windows_Programming_theory
                 richtextbox_calcinput.Clear();
                 richtextbox_calcinput.Focus();
                 richtextbox_calcinput.Text = "-";
+                op = "-";
             }
         }
 
         private void button_mul_Click(object sender, EventArgs e)
         {
-            if (num1.Length != 0 && (richtextbox_calcinput.Text != "+" ||
-                richtextbox_calcinput.Text != "-" || richtextbox_calcinput.Text != "*"
-                || richtextbox_calcinput.Text != "/") &&
+            if (num1.Length != 0 && op.Length != 0 &&
                 richtextbox_calcinput.Text.Length != 0)
             {
                 // both numbers have been inputted or derived
@@ -397,14 +395,13 @@ namespace Assignment_4_Windows_Programming_theory
                 richtextbox_calcinput.Clear();
                 richtextbox_calcinput.Focus();
                 richtextbox_calcinput.Text = "*";
+                op = "*";
             }
         }
 
         private void button_div_Click(object sender, EventArgs e)
         {
-            if (num1.Length != 0 && (richtextbox_calcinput.Text != "+" ||
-                richtextbox_calcinput.Text != "-" || richtextbox_calcinput.Text != "*"
-                || richtextbox_calcinput.Text != "/") && 
+            if (num1.Length != 0 && op.Length != 0 && 
                 richtextbox_calcinput.Text.Length != 0)
             {
                 // both numbers have been inputted or derived
@@ -416,6 +413,7 @@ namespace Assignment_4_Windows_Programming_theory
                 richtextbox_calcinput.Clear();
                 richtextbox_calcinput.Focus();
                 richtextbox_calcinput.Text = "/";
+                op = "/";
             }
         }
 
@@ -444,18 +442,21 @@ namespace Assignment_4_Windows_Programming_theory
                         num1 = result.ToString();
                         num2 = "";
                         richtextbox_calcinput.Text = result.ToString();
+                        op = "";
                         break;
                     case "-":
                         result = a - b;
                         num1 = result.ToString();
                         num2 = "";
                         richtextbox_calcinput.Text = result.ToString();
+                        op = "";
                         break;
                     case "*":
                         result = a * b;
                         num1 = result.ToString();
                         num2 = "";
                         richtextbox_calcinput.Text = result.ToString();
+                        op = "";
                         break;
                     case "/":
                         // storing int division result, limitation we cannot solve
@@ -463,6 +464,7 @@ namespace Assignment_4_Windows_Programming_theory
                         num1 = result.ToString();
                         num2 = "";
                         richtextbox_calcinput.Text = result.ToString();
+                        op = "";
                         break;
                     default:
                         MessageBox.Show("No operation?","Info");
