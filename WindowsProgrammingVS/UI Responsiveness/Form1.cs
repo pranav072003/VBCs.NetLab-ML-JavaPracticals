@@ -32,14 +32,16 @@ namespace UIResponsiveness_PrgmInWindows
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Form1 form = new Form1();
+            form.StartPosition = FormStartPosition.CenterScreen;
             timer_ui.Start();
             ToolTip t = new ToolTip();
             t.SetToolTip(label_progress, "See here the progress of form");
             t.SetToolTip(panel_ui, "See the change occuring after checking the check box");
-            h = panel_ui.Height;
-            w = panel_ui.Width;
-            c1 = panel_ui.Left;
-            c2 = panel_ui.Top;
+            h = panel_ui.Size.Height;
+            w = panel_ui.Size.Width;
+            c1 = panel_ui.Location.X;
+            c2 = panel_ui.Location.Y;
             checkbox_panelui.Anchor = AnchorStyles.Top & AnchorStyles.Bottom & AnchorStyles.Left & AnchorStyles.Right;
         }
 

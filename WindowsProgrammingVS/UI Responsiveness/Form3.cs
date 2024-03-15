@@ -33,5 +33,11 @@ namespace UIResponsiveness_PrgmInWindows
             this.Hide();
             f.Show();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            Form3 form = new Form3();
+            form.StartPosition = FormStartPosition.CenterScreen;
+        }
     }
 }

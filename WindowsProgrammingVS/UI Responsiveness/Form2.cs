@@ -19,6 +19,8 @@ namespace UIResponsiveness_PrgmInWindows
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            Form2 form = new Form2();
+            form.StartPosition = FormStartPosition.CenterParent;
             ToolTip t = new ToolTip();
             t.SetToolTip(textbox_userid, "Enter your user ID");
             t.SetToolTip(textbox_password, "Enter password");
