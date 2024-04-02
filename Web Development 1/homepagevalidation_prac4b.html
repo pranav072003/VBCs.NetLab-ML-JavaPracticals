@@ -1,0 +1,154 @@
+<html>
+<head>
+	<title>My Home Page</title>
+	<style>
+		p{
+	        line-height:1.01em;
+		}
+
+		.error {
+			color:red;
+	    }
+
+	    .reset {
+       		color:black;
+		}
+	</style>
+</head>
+<body style="font-style:Arial, sans-serif;">
+<h1 align="center" style="color:#ff000f;"><u><i>HOME PAGE</i></u></h1>
+
+<form action="loginpagevalidation.html" method="post" targets="_top" id="home-page">
+
+<label>Student Name:-</label>
+<input type="text" value="Hello, there! Enter your name here" id="student-name"></input>
+<p>
+<label>Roll number:-</label>
+<input type="text" value="Enter your enrollment number in numerics here" id="enroll-num"></input>
+</p>
+<p>
+<label>Email ID:-</label>
+<input type="text" value="Enter your e-mail id here" id="email"></input>
+</p>
+<p>
+<label>Age:-</label>
+<input type="text" id="age"></input>
+</p>
+<p>
+<label>Gender:-</label>
+<input type="radio" name="gender" checked>Male</input>
+<input type="radio" name="gender">Female</input>
+<input type="radio" name="gender">Others</input>
+</p>
+<p>
+<label>Name of Course:-</label>
+<select>
+<option selected>B.Tech</option>
+<option>M.Tech</option>
+<option>LLB</option>
+<option>MBA</option>
+<option>M.Phil</option>
+<option>MCA</option>
+<option>B.Pharma</option>
+<option>Others</option>
+</select>
+</p>
+<p>
+<label>Address:-</label>
+<textarea id="address"></textarea>
+</p>
+<!-- add an option to add a photo as a file format-->
+<p>
+<label>Photo:-</label>
+<input type="file" id="file"></input>
+</p>
+<p>
+<input type="submit" value="Submit Data"></input>
+&nbsp
+<input type="reset"></input>
+&nbsp
+<a href="loginpagevalidation.html" targets="_top">Log Out</a>
+</p>
+</form>
+
+<script>
+// add script function for validating user details
+
+const myform = document.querySelector("#home-page");
+myform.addEventListener('submit', formSubmitted);
+
+function formSubmitted(event) {
+    event.preventDefault();
+    
+    const studentName = document.querySelector("#student-name");
+	const enrollment_num = document.querySelector("#enroll-num");
+	const email_id = document.querySelector("#email");
+	const address = document.querySelector("#address");
+	var fileInput = document.querySelector("#file");
+    var numerals = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+    var regex = new RegExp(numerals.join('|'));
+	const age = document.querySelector("#age");
+	var age_has_letters = /[a-zA-Z]/.test(age.value);
+	var age_has_special_char = /[!@#$%^&*(),.?":{}|<>]/.test(enrollment_num.value);
+	// check whether student name contains any numbers or special characters
+    var hasNumerals = regex.test(studentName.value);
+	var hasSpecialCharacters_stname = /[!@#$%^&*(),.?":{}|<>]/.test(studentName.value);
+	// check whether student name contains any alphabets or special characters
+	var hasLetter = /[a-zA-Z]/.test(enrollment_num.value);
+	var hasSpecialCharacters_enroll = /[!@#$%^&*(),.?":{}|<>]/.test(enrollment_num.value);
+
+	// validating for the user details
+	if(!studentName.value || hasNumerals || hasSpecialCharacters_stname)
+    {
+		document.querySelector("#student-name").classList.add("error");
+		studentName.value = "Please enter a valid student name";
+		alert("Student Name Invalid!");
+		return;
+	}
+	if(!enrollment_num.value || hasLetter || hasSpecialCharacters_enroll)
+	{
+		document.querySelector("#enroll-num").classList.add("error");
+		enrollment_num.value = "Please enter a valid enrollment number";
+		alert("Enrollment Number Invalid!");
+		return;
+	}
+	if(!email_id.value || !(email_id.value.includes('@')))
+	{
+		document.querySelector("#email").classList.add("error");
+		email_id.value = "Please enter a valid email id";
+		alert("Email ID Invalid!");
+		return;
+	}
+	if(!address.value)
+	{
+		document.querySelector("#address").classList.add("error");
+		address.value = "Please enter address again! Empty field received";
+		alert("Address empty!");
+		return;
+	}
+	if(!age.value || age_has_letters || age_has_special_char)
+	{
+		document.querySelector("#age").classList.add("error");
+		age.value = "Enter a valid numeric value!";
+		alert("Invalid age entered");
+		return;
+	}
+	// check whether a file has been attached or not
+	if(fileInput.files.length<=0)
+	{
+		// document.querySelector("#file").classList.add("error");
+		alert("No file has been selected. Error!");
+		return;
+	}
+	document.querySelector("#student-name").classList.add("reset");
+    document.querySelector("#enroll-num").classList.add("reset");
+	document.querySelector("#email").classList.add("reset");
+	document.querySelector("#age").classList.add("reset");
+	document.querySelector("#address").classList.add("reset");
+	// document.querySelector("file").classList.add("reset");
+	alert("Hello "+studentName.value+"! Your form has been successfully submitted.");
+    myform.submit();
+}
+</script>
+</body>
+</html>
