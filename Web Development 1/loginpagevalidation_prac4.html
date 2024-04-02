@@ -1,0 +1,64 @@
+<html>
+<head>
+	<title>My Login Page</title>
+	<style> 
+	/* Add error colour to be shown when validation fails on a user input */
+	.error {
+		color:red;
+	}
+	</style>
+</head>
+<body style="font-style:Arial, sans-serif;">
+<h1 align="center" style="color:#ff000f;"><u><i>LOGIN PAGE</i></u></h1>
+
+<form action="" method="post" targets="_top" id="validation-form">
+
+<label id="user-id">User Name:-</label>
+<input type="text" value="Hello, there! Enter your username here" id="username"></input>
+<p style="line-height:1.01em;">
+<label id="userkey">Password:-</label>
+<input type="password" id="password"></input>
+</p>
+<p style="border: 1em solid black">
+<input type="submit" id="submit-button"></input>
+&nbsp
+<input type="reset"></input>
+</p>
+</form>
+
+<script>
+// add script function for validating username and password inputted by the user
+
+const myform = document.querySelector("#validation-form");
+myform.addEventListener('submit', formSubmitted);
+function formSubmitted(event) {
+    event.preventDefault();
+    
+    const usernameInput = document.querySelector("#username");
+	const userpassword = document.querySelector("#password");
+	// validating for the username and the password
+    if(!usernameInput.value || usernameInput.value.length>20 || usernameInput.value!="Pranav")
+	{
+		document.querySelector("#username").classList.add("error");
+		document.querySelector("#user-id").classList.add("error");
+		usernameInput.value = "Enter a valid username not exceeding 20 characters.";
+		alert("Username exceeding maximum length");
+		return;
+	}
+	if(!userpassword.value || userpassword.value.length>8 || userpassword.value!="3486")
+	{
+		document.querySelector("#password").classList.add("error");
+		document.querySelector("#userkey").classList.add("error");
+		alert("Invalid password! Try again later.");
+		return;
+	}
+	// else{
+	// 	myform.submit();
+	// }
+	alert("Welcome aboard "+usernameInput.value+"!");
+    myform.submit();
+}
+
+</script>
+</body>
+</html>
