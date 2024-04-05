@@ -1,5 +1,5 @@
 ﻿Public Class Form1
-    Dim name As String = "Pranav"
+    Dim name_p As String = "Pranav"
     Dim num As Integer = 516403221
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles textbox_input.TextChanged
@@ -12,7 +12,7 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Label_name.Text = "Label Name:-"
-        MessageBox.Show("Hello! " + name + " Your Enrollment number is " + num.ToString())
+        MessageBox.Show("Hello! " + name_p + " Your Enrollment number is " + num.ToString())
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
