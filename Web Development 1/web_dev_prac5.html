@@ -1,0 +1,180 @@
+<html>
+<head>
+<title> Creating Dynamic webpage elements with DHTML </title>
+<link rel="stylesheet" href="styles-prac5.css">
+</head>
+<body>
+<nav>
+  <ul class="menu">
+    <li><a href="web_dev_prac5.html" target="_top" title="Click here to go on main page">Home</a></li>
+    <li class="dropdown">
+      <a href="#">Discover</a>
+      <ul class="submenu">
+        <li><a href="https://www.udacity.com/school/artificial-intelligence" target="_blank">Artificial Intelligence</a></li>
+        <li><a  href="https://www.udacity.com/school/autonomous-systems" target="_blank">Autonomous Systems</a></li>
+        <li><a href="https://www.udacity.com/school/business" target="_blank">Business</a></li>
+	<li><a href="https://www.udacity.com/course/data-engineer-nanodegree--nd027" target="_blank">Data Engineering with AWS</a></li>
+	<li><a href="https://www.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893" target="_blank">Deep Reinforcement Learning</a></li>
+      </ul>
+    </li>
+    <li><a href="https://www.udacity.com/about-us" target="_blank">About Us</a></li>
+    <li class="drop_down">
+	<a href="#">Contact Us</a>
+	<ul class="sub_menu">
+        <li>India office: +919876543210</li>
+        <li>Thailand office: +6621234567</li>
+        <li>USA office: +1555-123-4567</li>
+        <li>Canada office: +1416-555-1234</li>
+        <li>Australia office: +61212345678</li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<p style="background-color:#ffd000;color:black;font-family:Sans-serif;text-tranform:capitalize;text-align:center;">
+Feel free to explore the web page
+</p>
+<h1 style="color:blue;text-align:center;">Udacity</h1>
+
+<label align="left">Click on the thumbnail images to see them on the bigger panel!</label>
+
+<div class="gallery">
+  <div class="thumbnails">
+    <img src="https://w7.pngwing.com/pngs/574/479/png-transparent-udacity-education-nanodegree-massive-open-online-course-mathematics-symbol-miscellaneous-blue-angle-thumbnail.png" alt="Thumbnail 1" onclick="changeImage('https://w7.pngwing.com/pngs/574/479/png-transparent-udacity-education-nanodegree-massive-open-online-course-mathematics-symbol-miscellaneous-blue-angle-thumbnail.png')">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqB6Yj5b8_VBIm5rOHZe25UuLOnkcfaPfn2o1j-uXzGg&s" alt="Thumbnail 2" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqB6Yj5b8_VBIm5rOHZe25UuLOnkcfaPfn2o1j-uXzGg&s')">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpW62rsZryocQW2VL6oqP2l2-bCzZqEtdyCQEYkyfxpw&s" alt="Thumbnail 3" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpW62rsZryocQW2VL6oqP2l2-bCzZqEtdyCQEYkyfxpw&s')">
+  </div>
+  <div class="main-image">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSTgdl4NUWm41Tw6N0yt1_q05QemeTjeNUijzN5SZRng&s" alt="Main Image" id="mainImage" onclick="changeImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSTgdl4NUWm41Tw6N0yt1_q05QemeTjeNUijzN5SZRng&s')">
+  </div>
+</div>
+
+<h2 style="font-variant:small-caps;text-align:center;"><label>Student FAQs</label></h2>
+<div class="faq-container">
+  <div class="faq-item">
+    <div class="question">What is a single paid course?</div>
+    <div class="answer">Udacity's Nanodegree programs are a series of paid courses. 
+    Each paid course is a distinct unit of learning, typically ending in a project where students demonstrate
+    mastery of the skills covered. On average, a learner can finish a course in one month, working 5-10 hours a week.</div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Do I get a Course graduation certificate if I complete a course?</div>
+    <div class="answer">Yes, Similar to Nanodegree programs, learners will have to complete all ‘required’ components to graduate (e.g. Project work).
+    Upon graduation, learners will receive a graduation certificate link that is shareable for the course they have completed.</div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Do Courses count towards a Nanodegree program?</div>
+    <div class="answer">Yes, if a student completes a Course (and passes the associated project), 
+    and subsequently enrolls in a Nanodegree program that includes that Course, their completion 
+    of the Course will be reflected in the Nanodegree program.
+</div>
+  </div>
+</div>
+
+<div class="task-board">
+  <div class="category" id="todo">
+    <h2>To Do</h2>
+    <div class="task" draggable="true" id="task1">Complete all the learning modules in the classroom</div>
+    <div class="task" draggable="true" id="task2">Complete all the quizzes and exercises of each lesson</div>
+    <div class="task" draggable="true" id="task3">Complete the project allocated and deploy it</div>
+  </div>
+  <div class="category" id="inprogress">
+    <h2>In Progress</h2>
+  </div>
+  <div class="category" id="done">
+    <h2>Done</h2>
+  </div>
+</div>
+
+<script>
+// Get all the dropdown menu items
+const dropdownItems = document.querySelectorAll('.dropdown');
+
+const questions = document.querySelectorAll('.question');
+
+questions.forEach((question) => {
+  question.addEventListener('click', () => {
+    const answer = question.nextElementSibling;
+    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+  });
+});
+
+// Add event listeners to each dropdown menu item
+dropdownItems.forEach((item) => {
+  item.addEventListener('mouseenter', showSubmenu);
+  item.addEventListener('mouseleave', hideSubmenu);
+});
+
+// Function to show the submenu
+function showSubmenu() {
+  this.querySelector('.submenu').style.display = 'flex';
+}
+
+// Function to hide the submenu
+function hideSubmenu() {
+  this.querySelector('.submenu').style.display = 'none';
+}
+
+// for opening a thumbnail when clicked upon
+function changeImage(imageUrl) {
+  var mainImage = document.getElementById("mainImage");
+  mainImage.src = imageUrl;
+}
+
+// Get all the tasks
+const tasks = document.querySelectorAll('.task');
+const categories = document.querySelectorAll('.category');
+
+// Add event listeners for drag events to tasks
+tasks.forEach(task => {
+  task.addEventListener('dragstart', dragStart);
+  task.addEventListener('dragend', dragEnd);
+});
+
+// Add event listeners for drop events to categories
+categories.forEach(category => {
+  category.addEventListener('dragover', dragOver);
+  category.addEventListener('dragenter', dragEnter);
+  category.addEventListener('dragleave', dragLeave);
+  category.addEventListener('drop', dragDrop);
+});
+
+// Store the dragged task
+let draggedTask;
+
+// Drag start event handler
+function dragStart(event) {
+  draggedTask = event.target;
+  event.dataTransfer.setData('text/plain', event.target.id);
+  event.target.classList.add('dragging');
+}
+
+// Drag end event handler
+function dragEnd(event) {
+  event.target.classList.remove('dragging');
+}
+
+// Drag over event handler
+function dragOver(event) {
+  event.preventDefault();
+}
+
+// Drag enter event handler
+function dragEnter(event) {
+  event.target.classList.add('hovered');
+}
+
+// Drag leave event handler
+function dragLeave(event) {
+  event.target.classList.remove('hovered');
+}
+
+// Drop event handler
+function dragDrop(event) {
+  event.target.classList.remove('hovered');
+  const taskId = event.dataTransfer.getData('text/plain');
+  const task = document.getElementById(taskId);
+  event.target.appendChild(task);
+}
+</script>
+</body>
+</html>

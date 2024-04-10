@@ -1,0 +1,110 @@
+/* add dynamics to the menus and sub-menus */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  display: inline-block;
+  position: relative;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.menu .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu .sub_menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  padding: 5px;
+  width: 650px;
+  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sub_menu li {
+        margin-bottom: 20px; /* Add spacing between each sub-menu item */
+}
+
+.menu .dropdown:hover .submenu {
+  display: flex;
+}
+
+.menu .drop_down:hover .sub_menu {
+  display: flex;
+}
+
+/* add details for customising thumbnail gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.thumbnails img {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.main-image img {
+  width: 400px;
+  height: 400px;
+}
+
+/* customises an accordion-style FAQ section */
+.faq-container {
+  width: 100%;
+}
+
+.faq-item {
+  margin-bottom: 10px;
+}
+
+.question {
+  background-color: #f0f0f0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  padding: 10px;
+  background-color: #ffffff;
+}
+
+/* sets the customisations for the drag and drop task board */
+.task-board {
+  display: flex;
+  gap: 20px;
+}
+
+.category {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.task {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  cursor: move;
+}
