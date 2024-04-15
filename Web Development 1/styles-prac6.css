@@ -1,0 +1,206 @@
+/* creates the responsive navigation menu */
+.navbar {
+  background-color: #888;
+  height: 50px;
+}
+
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.menu li a:hover {
+  background-color: #333;
+  color: red;
+}
+
+/* for checking whether link has been visited or not
+.menu li a:visited {
+  color: yellow;
+} */
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #888;
+  padding: 10px;
+}
+
+.dropdown:hover .submenu {
+  display: block;
+}
+
+.sub_menu {
+  display: none;
+  position: absolute;
+  background-color: #888;
+  padding: 10px;
+}
+
+.drop_down:hover .sub_menu {
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .dropdown:hover .dropdown-menu {
+    position: static;
+    display: block;
+  }
+}
+
+/* creates a card layout with flexbox */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(105, 128, 0, 0.9);
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.card img {
+  width: 275px;
+  height: 150pt;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  margin: 0 auto;
+}
+
+.card h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #888;
+}
+
+#versicolor{
+  animation: myAnimation_move 4s infinite; 
+}
+
+/* creates the pricing table and applies several CSS effects on it */
+.pricing-table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.plan {
+  background-color: #4d89e3;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.plan h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-variant: small-caps;
+  color: orange;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  animation: myAnimation 3s infinite; 
+}
+
+a.btn:hover {
+  color: maroon;
+}
+
+#surround {
+  display: flex;
+  justify-content: center;
+}
+
+#box {
+  display: inline-block;
+  background-color: #ccc;
+  padding: 10px;
+}
+
+/* creating animations */
+@keyframes myAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes myAnimation_move {
+  0% {
+    transform: translateX(-50px);
+  }
+  25% {
+    transform: translateX(50px);
+  }
+  50% {
+    transform: translatex(-100px);
+  }
+  75% {
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translatex(-50px);
+  }
+}
