@@ -42,6 +42,7 @@
             button_write = new Button();
             button_read = new Button();
             button_find = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // button_back
@@ -192,12 +193,24 @@
             button_find.UseVisualStyleBackColor = true;
             button_find.Click += button_find_Click;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Bottom;
+            button1.Location = new Point(616, 116);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 29);
+            button1.TabIndex = 14;
+            button1.Text = "Continue";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(button_find);
             Controls.Add(button_read);
             Controls.Add(button_write);
@@ -235,5 +248,6 @@
         private Button button_write;
         private Button button_read;
         private Button button_find;
+        private Button button1;
     }
 }

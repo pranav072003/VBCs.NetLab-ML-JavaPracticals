@@ -51,6 +51,10 @@ namespace File_operations_in_dotnet
 
         private void button_read_Click(object sender, EventArgs e)
         {
+            /*
+            Right Click on Solution explorer, and under add option, add Word and Excel 
+            COM objects (under COM Reference section) so that excel and word files can be read easily
+            */
             FileStream fs = new FileStream(textbox_filepath.Text, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             richtextbox_fileread.Text = sr.ReadToEnd();
@@ -62,7 +66,7 @@ namespace File_operations_in_dotnet
             FileStream fs = new FileStream(textbox_filepath.Text, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             String str = sr.ReadToEnd();
-            int i = (str.IndexOf(richtextbox_filesearch.Text,0));
+            int i = (str.IndexOf(richtextbox_filesearch.Text, 0));
             if (i > -1) // -1 used to denote E.O.F similar to Python last index used as -1
             {
                 MessageBox.Show("This word exists in file");
@@ -71,6 +75,13 @@ namespace File_operations_in_dotnet
             {
                 MessageBox.Show("This word does not exist in the file");
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form3 f = new Form3();
+            this.Hide();
+            f.Show();
         }
     }
 }
