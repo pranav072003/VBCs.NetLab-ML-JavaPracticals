@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Image Slider using DHTML </title>
+<style>
+.slider {
+  width: 1000px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+button {
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="slider">
+  		<img src="https://png.pngtree.com/thumb_back/fh260/background/20230411/pngtree-car-light-effect-abstract-supercar-image_2205429.jpg" alt="McLaren Artura">
+  		<img src="https://c4.wallpaperflare.com/wallpaper/825/184/17/car-vehicle-super-car-supercars-wallpaper-preview.jpg" alt="Lamborghini Sesto Elemento">
+  		<img src="https://news.dupontregistry.com/wp-content/uploads/2023/11/Henessey-1080x570.jpg" alt="Henessey Venom F5">
+	</div>
+	<button class="prev">Previous</button>
+	<button class="next">Next</button>
+<script>
+const slider = document.querySelector('.slider');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const images = document.querySelectorAll('.slider img');
+
+let currentIndex = 0;
+
+function showImage(index) {
+  images.forEach((image, i) => {
+    if (i === index) {
+      image.style.display = 'block';
+    } else {
+      image.style.display = 'none';
+    }
+  });
+}
+
+function prevImage() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+  showImage(currentIndex);
+}
+
+function nextImage() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  showImage(currentIndex);
+}
+
+prevBtn.addEventListener('click', prevImage);
+nextBtn.addEventListener('click', nextImage);
+
+showImage(currentIndex);
+</script>
+</body>
+</html>
