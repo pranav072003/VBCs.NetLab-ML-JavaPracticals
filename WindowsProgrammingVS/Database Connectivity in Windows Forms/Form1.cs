@@ -1,4 +1,6 @@
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Database_Connectivity_in_Windows_Forms
 {
@@ -19,7 +21,7 @@ namespace Database_Connectivity_in_Windows_Forms
             // Create a form with multiple fields as given in the SSMS file for SQL server
             try
             {
-                DialogResult d = MessageBox.Show("Are you sure you want to submit? No updates are allowed once the data has been submitted!","Alert",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                DialogResult d = MessageBox.Show("Are you sure you want to submit? No updates are allowed once the data has been submitted!", "Alert", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (d == DialogResult.No)
                 {
                     // return and do not proceed with saving
@@ -42,7 +44,7 @@ namespace Database_Connectivity_in_Windows_Forms
                 string find_query = "SELECT COUNT(*) from MyFirstTable where ENROLLMENT_NUM='" + enroll_id + "'";
                 SqlCommand cmd_find = new SqlCommand(find_query, con);
                 Int32 r = Convert.ToInt32(cmd_find.ExecuteScalar());
-                if (r!=0)
+                if (r != 0)
                 {
                     // entry already exists for the enrollment id
                     MessageBox.Show("Entry already exists for the current student!");
@@ -180,9 +182,99 @@ namespace Database_Connectivity_in_Windows_Forms
             textbox_course.Focus();
             textbox_name.Clear();
             textbox_name.Focus();
-            for(int i=0;i<original_collection_list.Length;i++)
+            for (int i = 0; i < original_collection_list.Length; i++)
             {
                 listbox_studentdetail.Items.Add(original_collection_list[i]);
+            }
+        }
+
+        private void button_databaseupdate_Click(object sender, EventArgs e)
+        {
+            string enroll_id = textbox_course.Text;
+            string name = textbox_name.Text;
+            try
+            {
+                if (enroll_id.Length == 0)
+                {
+                    // don't proceed with update
+                    MessageBox.Show("Search field empty! Try again!");
+                    return;
+                }
+                string Connectionstring = "Data Source=LAPTOP-NFJ7VAOT\\SQLEXPRESS;Initial Catalog=Pranav;Integrated Security=True;Connect Timeout=30;Encrypt=False"; // Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+                SqlConnection con = new SqlConnection(Connectionstring);
+                con.Open();
+                // updates the row having entry for student
+                string update_query = "UPDATE MyFirstTable SET NAME='" + name + "', DEPARTMENT='" + dept + "', COURSE='" + course + "' WHERE ENROLLMENT_NUM='" + enroll_id + "'";
+                SqlCommand update_data = new SqlCommand(update_query, con);
+                update_data.ExecuteNonQuery();
+                MessageBox.Show("Update into Data successful!");
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Update into Data unsuccessful!");
+            }
+        }
+
+        private void button_loaddata_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Create a connection to the database
+                string Connectionstring = "Data Source=LAPTOP-NFJ7VAOT\\SQLEXPRESS;Initial Catalog=Pranav;Integrated Security=True;Connect Timeout=30;Encrypt=False"; // Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+                using (SqlConnection connection = new SqlConnection(Connectionstring))
+                {
+                    // Open the connection
+                    connection.Open();
+
+                    // SQL query to select data from MyTable
+                    string query = "SELECT * FROM MyFirstTable";
+
+                    // Create a data adapter
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+                    {
+                        // Create a DataTable to hold the data
+                        DataTable dataTable = new DataTable();
+                        // DataGridView dataGridView = new DataGridView();
+
+                        // Fill the DataTable with data from the database
+                        adapter.Fill(dataTable);
+
+                        // Bind the DataTable to a DataGridView control
+                        dataGridView_database.DataSource = dataTable;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void button_deletedatabase_Click(object sender, EventArgs e)
+        {
+            string enroll_id = textbox_course.Text;
+            try
+            {
+                if (enroll_id.Length == 0)
+                {
+                    // don't proceed with delete
+                    MessageBox.Show("Search field empty! Try again!");
+                    return;
+                }
+                string Connectionstring = "Data Source=LAPTOP-NFJ7VAOT\\SQLEXPRESS;Initial Catalog=Pranav;Integrated Security=True;Connect Timeout=30;Encrypt=False"; // Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+                SqlConnection con = new SqlConnection(Connectionstring);
+                con.Open();
+                // updates the row having entry for student
+                string delete_query = "DELETE from MyFirstTable WHERE ENROLLMENT_NUM='" + enroll_id + "'";
+                SqlCommand delete_data = new SqlCommand(delete_query, con);
+                delete_data.ExecuteNonQuery();
+                MessageBox.Show("Deletion from database successful!");
+                con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Deletion from database unsuccessful!");
             }
         }
     }
