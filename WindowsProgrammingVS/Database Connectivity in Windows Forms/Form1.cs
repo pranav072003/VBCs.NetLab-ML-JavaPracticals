@@ -277,5 +277,12 @@ namespace Database_Connectivity_in_Windows_Forms
                 MessageBox.Show("Deletion from database unsuccessful!");
             }
         }
+
+        private void button_continue_Click(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            this.Hide();
+            f.Show();
+        }
     }
 }

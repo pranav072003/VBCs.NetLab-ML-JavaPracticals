@@ -42,6 +42,7 @@
             button_loaddata = new Button();
             button_deletedatabase = new Button();
             dataGridView_database = new DataGridView();
+            button_continue = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView_database).BeginInit();
             SuspendLayout();
             // 
@@ -189,11 +190,23 @@
             dataGridView_database.Size = new Size(444, 77);
             dataGridView_database.TabIndex = 18;
             // 
+            // button_continue
+            // 
+            button_continue.Anchor = AnchorStyles.Top;
+            button_continue.Location = new Point(628, 37);
+            button_continue.Name = "button_continue";
+            button_continue.Size = new Size(160, 29);
+            button_continue.TabIndex = 19;
+            button_continue.Text = "Continue";
+            button_continue.UseVisualStyleBackColor = true;
+            button_continue.Click += button_continue_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button_continue);
             Controls.Add(dataGridView_database);
             Controls.Add(button_deletedatabase);
             Controls.Add(button_loaddata);
@@ -231,5 +244,6 @@
         private Button button_loaddata;
         private Button button_deletedatabase;
         private DataGridView dataGridView_database;
+        private Button button_continue;
     }
 }
