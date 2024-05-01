@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+</head>
+<body>
+  <h1>Countdown Timer</h1>
+  <form>
+    <label for="date">Date:</label>
+    <input type="date" id="date" required>
+    <br>
+    <label for="time">Time:</label>
+    <input type="time" id="time" required>
+    <br>
+    <button type="submit">Start Countdown</button>
+  </form>
+  <p id="countdown"></p>
+
+  <script>
+    // Get the form element
+    var form = document.querySelector('form');
+
+    // Add event listener for form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get the user-selected date and time
+      var selectedDate = document.getElementById('date').value;
+      var selectedTime = document.getElementById('time').value;
+
+      // Combine the date and time into a single string
+      var targetDateTime = selectedDate + 'T' + selectedTime;
+
+      // Set the target date and time
+      var targetDate = new Date(targetDateTime);
+
+      // Update the countdown every second
+      var countdown = setInterval(function() {
+        // Get the current date and time
+        var currentDate = new Date().getTime();
+
+        // Calculate the remaining time
+        var remainingTime = targetDate - currentDate;
+
+        // Calculate days, hours, minutes, and seconds
+        var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+        // Display the countdown
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // If the countdown is finished, clear the interval
+        if (remainingTime <= 0) {
+          clearInterval(countdown);
+          document.getElementById("countdown").innerHTML = "Countdown Finished";
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
