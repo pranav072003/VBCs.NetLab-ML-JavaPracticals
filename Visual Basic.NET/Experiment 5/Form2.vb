@@ -20,6 +20,8 @@ Public Class Form2
     End Sub
 
     Private Sub button_sequence_Click(sender As Object, e As EventArgs) Handles button_sequence.Click
+        listbox_sequence.Items.Clear()
+        listbox_sequence.Focus()
         Dim a As Integer
         Try
             a = Convert.ToInt32(textbox_num.Text)
@@ -36,8 +38,8 @@ Public Class Form2
         Dim k As Integer = 1
         Dim space As Integer = levels
         For i = 1 To levels Step 1
-            Dim s As String = Strings.StrDup(levels + 2, " ")
-            ' TODO: add logic for adding numbers in a row to form star like pattern
+            Dim s As String = Strings.StrDup(2 * levels - 2, " ")
+            ' DONE: add logic for adding numbers in a row to form star like pattern
             Dim idx As Integer = space - 1
             For j = k To (k + i - 1)
                 s = s.Insert(idx, j.ToString())
