@@ -18,4 +18,12 @@ POST VARCHAR(60)
 
 -- INSERT INTO EmployeeData(NAME,EMPLOYEE_ID,DEPARTMENT,POST) VALUES('tyosud', '', 'IT Services', 'Junior Programmer');
 
-Select * from EmployeeData;
+-- Select * from EmployeeData;
+
+-- get schema using select statement 
+
+-- Select * from INFORMATION_SCHEMA.COLUMNS where TABLE_NAME='EmployeeData';  -- note that . operator is the same as the one used for dereferencing similar named attributes in different tables, as used in JOINS on tables
+
+-- using alternative statement of desc in MySQL to get table schema in SQL server
+
+-- exec sp_columns EmployeeData;
